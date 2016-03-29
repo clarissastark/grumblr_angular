@@ -32,7 +32,7 @@
       controllerAs: "GrumbleShowViewModel"
     })
     .state("grumbleEdit", {
-      url: "/grumbles/:id",
+      url: "/grumbles/:id/edit",
       templateUrl: "js/grumbles/edit.html",
       controller: "GrumbleEditController",
       controllerAs: "GrumbleEditViewModel"
