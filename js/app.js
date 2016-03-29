@@ -4,8 +4,6 @@
   angular
   .module("grumblr", [
     "ui.router",
-    "$stateProvider",
-    "$locationProvider",
     "grumbles"
   ])
   .config([
@@ -13,8 +11,7 @@
     RouterFunction
   ]);
 
-  function RouterFunction($stateProvider, $locationProvider){
-    $locationProvider.HTML5mode(true);
+  function RouterFunction($stateProvider){
     $stateProvider
     .state("grumbleIndex", {
       url: "/grumbles",
@@ -22,11 +19,23 @@
       controller: "GrumbleIndexController",
       controllerAs: "GrumbleIndexViewModel"
     })
+    .state("grumbleNew", {
+      url: "/grumbles/new",
+      templateUrl: "js/grumbles/new.html",
+      controller: "GrumbleNewController",
+      controllerAs: "GrumbleNewViewModel"
+    })
     .state("grumbleShow", {
       url: "/grumbles/:id",
       templateUrl: "js/grumbles/show.html",
       controller: "GrumbleShowController",
       controllerAs: "GrumbleShowViewModel"
+    })
+    .state("grumbleEdit", {
+      url: "/grumbles/:id",
+      templateUrl: "js/grumbles/edit.html",
+      controller: "GrumbleEditController",
+      controllerAs: "GrumbleEditViewModel"
     });
   }
 }());
